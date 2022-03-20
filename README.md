@@ -3,6 +3,8 @@
 #### Python/Flask
 #### Service_A Port : 8080
 #### Service_B Port : 8081
+#### Health check path : /health
+
 ## How to install package
 First, Upload requirements.txt to S3 Bucket
 
@@ -19,5 +21,5 @@ pip3 install -r requirements.txt
 ## Modify Source Code
 Modify url to Internal ALB DNS name in [/vpc-a/app.py](https://github.com/Jeromy0515/cloud-skills-msa-example/blob/main/vpc-a/app.py)
 ```
-url = '<Your-Internal-ALB-DNS-Name>:8081'
+url = '<Your-Internal-ALB-DNS-Name>'
 ```
