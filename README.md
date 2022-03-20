@@ -2,14 +2,20 @@
 
 
 ## How to install package
-First, copy requirements.txt to EC2 instance. using this command
+First, Upload requirements.txt to S3 Bucket
+
+Copy requirements.txt to EC2 instance. using this command
 ```
 aws s3 cp s3://<bucket-name>/requirements.txt ./
 ```
 
-install package, using this command
+Install package, using this command
 ```
 pip3 install -r requirements.txt
 ```
 
-
+## Modify Source Code
+Modify url to Internal ALB DNS name in /vpc-a/app.py
+```
+url = '<Your-Internal-ALB-DNS-Name>'
+```
