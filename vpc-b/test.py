@@ -2,13 +2,13 @@ from flask import Flask, abort, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/v1/color', methods=['GET'])
+@app.route('/v2/color', methods=['GET'])
 def get_color():
   try:
     color_name = request.args['name']
     color_hash = request.args['hash']
 
-    ret = {'code': '', 'name': ''}
+    ret = {'code': '', 'name': '', 'version': 'v2'}
 
     if color_name == 'red':
         ret['code'] = 'ffff00'
@@ -25,10 +25,13 @@ def get_color():
     print(e)
     abort(500)
 
-@app.route('/health', methods=['GET'])
+@app.route('/v2/health', methods=['GET'])
 def get_health():
   try:
-    ret = {'status': 'ok'}
+    ret = {
+        'version': 'v2',
+        'status': 'ok'
+    }
 
     return jsonify(ret), 200
   except Exception as e:

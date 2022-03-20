@@ -3,7 +3,7 @@
 #### Python/Flask
 #### Service_A Port : 8080
 #### Service_B Port : 8081
-#### Health check path : /health
+#### Health check path : /< v1 or v2 >/health
 
 ## How to install package
 First, Upload requirements.txt to S3 Bucket

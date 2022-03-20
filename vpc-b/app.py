@@ -8,7 +8,7 @@ def get_color():
     color_name = request.args['name']
     color_hash = request.args['hash']
 
-    ret = {'code': '', 'name': ''}
+    ret = {'code': '', 'name': '', 'version': 'v1'}
 
     if color_name == 'red':
         ret['code'] = 'f34a07'
@@ -25,10 +25,13 @@ def get_color():
     print(e)
     abort(500)
 
-@app.route('/health', methods=['GET'])
+@app.route('/v1/health', methods=['GET'])
 def get_health():
   try:
-    ret = {'status': 'ok'}
+    ret = {
+        'version': 'v1',
+        'status': 'ok'
+    }
 
     return jsonify(ret), 200
   except Exception as e:
