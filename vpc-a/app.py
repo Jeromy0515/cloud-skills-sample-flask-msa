@@ -31,6 +31,7 @@ def get_health():
 
     return jsonify(ret), 200
   except Exception as e:
+    print(e)
     abort(500)
 
 if __name__ == "__main__":
