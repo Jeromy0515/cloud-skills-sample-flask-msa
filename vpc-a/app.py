@@ -4,6 +4,7 @@ import requests
 url = 'http://localhost:8081'
 app = Flask(__name__)
 
+@app.route('/test/v1/color', methods=['GET'])
 @app.route('/v1/color', methods=['GET'])
 def get_color():
   try:
