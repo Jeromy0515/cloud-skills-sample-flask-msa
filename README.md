@@ -17,7 +17,7 @@ pip3 install -r requirements.txt
 ```
 
 ## Modify Source Code
-Modify url to Internal ALB DNS name in /vpc-a/app.py
+Modify url to Internal ALB DNS name in [/vpc-a/app.py](https://github.com/Jeromy0515/cloud-skills-msa-example/blob/main/vpc-a/app.py)
 ```
 url = '<Your-Internal-ALB-DNS-Name>'
 ```
