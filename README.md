@@ -23,3 +23,9 @@ Modify url to Internal ALB DNS name in [/vpc-a/app.py](https://github.com/Jeromy
 ```
 url = 'http://<Your-Internal-ALB-DNS-Name>'
 ```
+
+## How to Run Application
+
+First, create internal ALB and modify source code
+
+
