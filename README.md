@@ -5,6 +5,12 @@
 #### Service_B Port : 8081
 #### Health check path : /< v1 or v2 >/health
 
+## Modify Source Code
+Modify url to Internal ALB DNS name in [/vpc-a/app.py](https://github.com/Jeromy0515/cloud-skills-msa-example/blob/main/vpc-a/app.py)
+```
+url = 'http://<Your-Internal-ALB-DNS-Name>'
+```
+
 ## How to install package
 First, Upload requirements.txt to S3 Bucket
 
@@ -18,14 +24,38 @@ Install package, using this command
 pip3 install -r requirements.txt
 ```
 
-## Modify Source Code
-Modify url to Internal ALB DNS name in [/vpc-a/app.py](https://github.com/Jeromy0515/cloud-skills-msa-example/blob/main/vpc-a/app.py)
-```
-url = 'http://<Your-Internal-ALB-DNS-Name>'
-```
-
 ## How to Run Application
 
-First, create internal ALB and modify source code
+1. Create internal ALB and modify source code
+2. Create EC2 instance for Service-A
+   1. Copy [`/vpc-a/app.py`](https://github.com/Jeromy0515/cloud-skills-sample-msa/blob/main/vpc-a/app.py) to EC2 instance
+   2. Run `app.py` using this command
+      ```
+      nohup python3 app.py &
+      ```
+    
+3. Create EC2 instance for Service-B v1
+   1. Copy [`/vpc-b/app.py`](https://github.com/Jeromy0515/cloud-skills-sample-msa/blob/main/vpc-b/app.py) to EC2 instance
+   2. Run `app.py` using this command
+      ```
+      nohup python3 app.py &
+      ```
+4. Create EC2 instance for Service-B v2
+   1. Copy [`/vpc-b/test.py`](https://github.com/Jeromy0515/cloud-skills-sample-msa/blob/main/vpc-b/test.py) to EC2 instance
+   2. Run `test.py` using this command
+      ```
+      nohup python3 test.py &
+      ```
+    
 
+## How to A/B Testing
+
+Configure internal ALB listener rules
+```
+IF
+Path is /v2/*
+
+THEN
+Foward to <V2 Target Group>
+```
 
