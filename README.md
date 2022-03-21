@@ -1,4 +1,8 @@
 # 2022 클라우드 컴퓨팅 지방기능경기대회 제 1과제 Microservice Architecture 예제 코드
+
+## Architecture
+![image](https://user-images.githubusercontent.com/77256585/159214736-31253d36-ee59-4817-a6ce-2d4618d9d83b.png)
+
 ## Language/Framework
 #### Python/Flask
 #### Service_A Port : 8080
